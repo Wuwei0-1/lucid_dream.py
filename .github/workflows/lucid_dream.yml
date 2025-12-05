@@ -1,3 +1,17 @@
+name: Lucid Dream Protocol
+
+on: workflow_dispatch
+
+jobs:
+  dream_state:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install numpy matplotlib
+      - run: python dream.py  # <--- This triggers your script
 import numpy as np
 import matplotlib.pyplot as plt
 import os
@@ -5,7 +19,7 @@ from datetime import datetime
 
 # --- CONFIGURATION ---
 # The dream changes based on the day
-seed = int(datetime.now().timestamp())
+seed = int(datetime.now().timestamp()
 np.random.seed(seed)
 
 def generate_dream():
